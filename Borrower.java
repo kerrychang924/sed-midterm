@@ -39,45 +39,45 @@ public class Borrower implements User {
     
     @Override
     public void checkout(Library library, Book book, User user) {
-        // 實現借書邏輯
+      System.out("Borrower can not check out the books");
     }
 
     @Override
     public void returnBook(Library library, Book book) {
-        // 實現還書邏輯
+      System.out("Borrower can not return book");
     }
 
     @Override
     public void addBook(Library library, Author author, Subject subject) {
-        // 此方法應由職員或圖書館管理員執行，借閱者通常不具有此權限
+      System.out("Borrower can not add book");
     }
 
     @Override
     public void removeBook(Library library, Book book) {
-        // 此方法應由職員或圖書館管理員執行，借閱者通常不具有此權限
+      System.out("Borrower can not remove book");
     }
 
     @Override
     public List<Book> getBooksByAuthor(Library library, Author author) {
-        // 實現根據作者查詢書籍邏輯
-        return new ArrayList<>();
+      return author.getBooks();
     }
 
     @Override
     public List<Book> getBooksBySubject(Library library, Subject subject) {
-        // 實現根據主題查詢書籍邏輯
-        return new ArrayList<>();
+      return subject.getBooks();
     }
 
     @Override
     public List<Book> getBooksByBorrower(Library library, User user) {
-        // 實現根據借閱者查詢書籍邏輯
-        return new ArrayList<>();
+      if(user == this) return user.getBorrowedBooks();
+      else{
+        System.out("Borrower can not find books checked out by other users");
+        return null;
+      } 
     }
 
     @Override
     public User findLastBorrower(Library library, Book book) {
-        // 實現查找最後一個借閱者的邏輯
-        return null;
+        System.out("Borrower can not find borrower");
     }
 }
