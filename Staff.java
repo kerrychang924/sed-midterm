@@ -50,6 +50,7 @@ public class Staff implements User {
           System.out.println("Can not check out since the book is checked out");
         }
 
+        user.addBorrowedBook(book);
         // checkout logic
         book.setStatus(false);
         book.setBorrower(user);
@@ -58,9 +59,10 @@ public class Staff implements User {
     @Override
     public void returnBook(Library library, Book book) {
       // check book borrow, status true === available
-        if(book.getStatus() == true){
-          System.out.println("Can not return since the book isn't checked out");
-        }
+      if(book.getStatus() == true){
+        System.out.println("Can not return since the book isn't checked out");
+      }
+      user.removeBorrowedBook(book);
       book.setStatus(true);
     }
 
