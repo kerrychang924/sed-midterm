@@ -46,7 +46,10 @@ public class Library {
         if(removedBook == null){
             return null;
         }
+        removedBook.getAuthor().removeBook(removedBook);
+        removedBook.getSubject().removeBook(removedBook);
         books.remove(bookName);
+
         return removedBook;
     }
 

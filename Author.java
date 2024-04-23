@@ -23,4 +23,8 @@ public class Author {
         books.add(book);
     }
 
+    public void removeBook(Book book){
+        books.remove(book);
+    }
+
 }

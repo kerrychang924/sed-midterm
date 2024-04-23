@@ -44,7 +44,7 @@ class LibrarySystem {
                             case "addBook":
                                 String staffId = tokens[0];
                                 if((line = reader.readLine()) != null){
-                                    String[] tokens = line.split"\\s+");
+                                    String[] tokens = line.split("\\s+");
                                     handler.addBook(staffId ,tokens[0], tokens[1]);
                                 }
                                 break;
