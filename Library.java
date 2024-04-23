@@ -7,9 +7,8 @@ public class Library {
     private final Map<String, User> users;
     private final Map<String, Book> books;
     private final Map<String, Author> authors;
-    private Map<String, Subject> subjects;
+    private final Map<String, Subject> subjects;
 
-    private static int book_count = 0;
 
     public Library(){
         users = new HashMap<>();
@@ -31,8 +30,7 @@ public class Library {
     }
 
     public void addBook(Book book){
-        Library.book_count = Book.getBook_count();
-        books.put(Integer.toString(Library.book_count), book);
+        books.put(book.getName(), book);
     }
 
     public List<Book> getBooks(){
@@ -56,11 +54,11 @@ public class Library {
         return authors.get(author_id);
     }
 
-    public void addSubject(Author author){
-        subjects.put(author.getName(), author);
+    public void addSubject(Subject subject){
+        subjects.put(subject.getName(), subject);
     }
 
-    public Author getSubject(String subject_id){
+    public Subject getSubject(String subject_id){
         return subjects.get(subject_id);
     }
 }

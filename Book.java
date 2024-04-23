@@ -1,5 +1,5 @@
 public class Book implements Comparable<Book>{
-    private String name;
+    private final String name;
     private boolean status;
     private Author author;
     private Subject subject;
