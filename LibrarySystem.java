@@ -22,7 +22,11 @@ class LibrarySystem {
                 if(tokens.length == 1){
                     if(isBookInfo){
                         isBookInfo = false;
-                        inputBookCount = Integer.parseInt(tokens[0]);
+                        try {
+                            inputBookCount = Integer.parseInt(tokens[0]);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error: not an integer " + tokens[0]);
+                        }
                         while ((line = reader.readLine()) != null && inputBookCount > 0) {
                             tokens = line.split("\\s+");
                             inputBookCount -= 1;
@@ -30,7 +34,11 @@ class LibrarySystem {
                         }
                     }else{
                         isBookInfo = true;
-                        inputUserCount = Integer.parseInt(tokens[0]);
+                        try {
+                            inputUserCount = Integer.parseInt(tokens[0]);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error: not an integer " + tokens[0]);
+                        }
                         while ((line = reader.readLine()) != null && inputUserCount > 0) {
                             tokens = line.split("\\s+");
                             inputUserCount -= 1;
@@ -67,24 +75,26 @@ class LibrarySystem {
                         case "listAuthor":
                             books = handler.getBooksByAuthor(tokens[0], tokens[2]);
                             for(Book book : books){
-                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " book.getSubject());
+                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " +  book.getSubject());
                             }
                             break;
                         case "listSubject":
                             books = handler.getBooksBySubject(tokens[0], tokens[2]);
                             for(Book book : books){
-                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " book.getSubject());
+                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " +  book.getSubject());
                             }
                             break;
                         case "findChecked":
                             books = handler.getBooksByBorrower(tokens[0], tokens[2]);
                             for(Book book : books){
-                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " book.getSubject());
+                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " + book.getSubject());
                             }
                             break;
                         case "Borrower":
                             User user = handler.findLastBorrower(tokens[0], tokens[2]);
-                            System.out.println("User: " + user.getName());
+                            if(user != null){
+                                System.out.println("User: " + user.getName());
+                            }
                             break;
                     }
                 }
