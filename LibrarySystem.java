@@ -81,19 +81,19 @@ class LibrarySystem {
                         case "listAuthor":
                             books = handler.getBooksByAuthor(tokens[0], tokens[2]);
                             for(Book book : books){
-                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " +  book.getSubject());
+                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor().getName() + " Subject: " +  book.getSubject().getName());
                             }
                             break;
                         case "listSubject":
                             books = handler.getBooksBySubject(tokens[0], tokens[2]);
                             for(Book book : books){
-                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " +  book.getSubject());
+                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor().getName() + " Subject: " +  book.getSubject().getName());
                             }
                             break;
                         case "findChecked":
                             books = handler.getBooksByBorrower(tokens[0], tokens[2]);
                             for(Book book : books){
-                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor() + " Subject: " + book.getSubject());
+                                System.out.println("ID: " + book.getName() + " Author: " + book.getAuthor().getName() + " Subject: " + book.getSubject().getName());
                             }
                             break;
                         case "Borrower":

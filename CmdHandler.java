@@ -17,7 +17,7 @@ public class CmdHandler {
             return;
         }
 
-        if (type == "Staff") {
+        if (type.equals("Staff")) {
             user = new Staff(name, MAX_LIMIT);
         } else {
             user = new Borrower(name, Integer.parseInt(booksLimit));

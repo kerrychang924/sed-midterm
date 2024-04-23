@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.SortedSet;
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Borrower implements User {
   private String name;
@@ -11,6 +12,7 @@ public class Borrower implements User {
   public Borrower(String name, int booksLimit) {
       this.name = name;
       this.booksLimit = booksLimit;
+      this.borrowedBooks = new TreeSet<>();
   }
     @Override
     public String getName() {
