@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 class LibrarySystem {
-    private CmdHandler handler = new CmdHandler();
+    private static CmdHandler handler = new CmdHandler();
 
     public static void main(String[] args) {
         String filePath = args[0];
