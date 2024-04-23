@@ -85,7 +85,10 @@ public class Staff implements User {
     @Override
     public void removeBook(Library library, Book book) {
       // if the book not exist?
-      library.removeBook(book); 
+      
+      library.removeBook(book.getName()); 
+      author.removeBook(book.getName());
+      subject.removeBook(book.getName());
 
     }
 
