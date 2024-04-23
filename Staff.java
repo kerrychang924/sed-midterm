@@ -40,22 +40,56 @@ public class Staff implements User {
 
     @Override
     public void checkout(Library library, Book book, User user) {
-        // 實現借書邏輯
+        // check user limit
+        if(user.getBorrowedBooks().size() > user.getBooksLimit()){
+          System.out("Can not check out since the number of books exceed the limitation of user can check-out");
+        }
+
+        // check book borrow, status true === available
+        if(book.getStatus() == false){
+          System.out("Can not check out since the book is checked out");
+        }
+
+        // checkout logic
+        book.setStatus(false);
     }
 
     @Override
     public void returnBook(Library library, Book book) {
-        // 實現還書邏輯
+      // check book borrow, status true === available
+        if(book.getStatus() == true){
+          System.out("Can not return since the book isn't checked out");
+        }
+      book.setStatus(true);
     }
 
     @Override
     public void addBook(Library library, Author author, Subject subject) {
-        // 實現添加書籍邏輯
+      // no checking
+      Book book = new Book(author, subject);
+      library.addBook(book); 
+
+      // add author
+      author.addBook(book);
+      if(library.getAuthor(author.getName()) == null){
+        library.addAuthor(author);
+      }
+      
+      // add subject
+      subject.addBook(book);
+      if(library.getSubject(subject.getName()) == null){
+        library.addSubject(subject);
+      }
     }
 
     @Override
     public void removeBook(Library library, Book book) {
-        // 實現移除書籍邏輯
+      // if the book not exist?
+      
+      library.removeBook(book.getName()); 
+      author.removeBook(book.getName());
+      subject.removeBook(book.getName());
+
     }
 
     @Override
