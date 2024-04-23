@@ -94,25 +94,21 @@ public class Staff implements User {
 
     @Override
     public List<Book> getBooksByAuthor(Library library, Author author) {
-        // 實現根據作者查詢書籍邏輯
-        return new ArrayList<>();
+      return author.getBooks();
     }
 
     @Override
     public List<Book> getBooksBySubject(Library library, Subject subject) {
-        // 實現根據主題查詢書籍邏輯
-        return new ArrayList<>();
+      return subject.getBooks();
     }
 
     @Override
     public List<Book> getBooksByBorrower(Library library, User user) {
-        // 實現根據借閱者查詢書籍邏輯
-        return new ArrayList<>();
+      return user.getBorrowedBooks();
     }
 
     @Override
     public User findLastBorrower(Library library, Book book) {
-        // 實現查找最後一個借閱者的邏輯
-        return null;
+      return book.getBorrower();
     }
 }
