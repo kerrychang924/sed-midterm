@@ -11,13 +11,13 @@ public class CmdHandler {
 
     public void addUser(String type, String name, String booksLimit) {
         User user;
-        if (!(type == "staff" || type == "borrower")) {
+        if (!(type == "Staff" || type == "Borrower")) {
             System.err.println("Invalid user.");
             System.out.println("Error");
             return;
         }
 
-        if (type == "staff") {
+        if (type == "Staff") {
             user = new Staff(name, MAX_LIMIT);
         } else {
             user = new Borrower(name, Integer.parseInt(booksLimit));
