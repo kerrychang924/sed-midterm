@@ -18,10 +18,25 @@ public class Borrower implements User {
     }
 
     @Override
+    public int getBooksLimit() {
+        return booksLimit;
+    }
+
+    @Override
     public List<Book> getBorrowedBooks() {
         return new ArrayList<>(borrowedBooks);
     }
 
+    @Override
+    public void addBorrowedBook(Book book) {
+        borrowedBooks.add(book);
+    }
+
+    @Override
+    public void removeBorrowedBook(Book book) {
+        borrowedBooks.remove(book);
+    }
+    
     @Override
     public void checkout(Library library, Book book, User user) {
         // 實現借書邏輯

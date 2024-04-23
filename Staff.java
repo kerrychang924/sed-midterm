@@ -19,6 +19,11 @@ public class Staff implements User {
     }
 
     @Override
+    public int getBooksLimit() {
+        return booksLimit;
+    }
+
+    @Override
     public List<Book> getBorrowedBooks() {
         return new ArrayList<>(borrowedBooks);
     }
