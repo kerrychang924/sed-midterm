@@ -37,6 +37,10 @@ public class Library {
         return new ArrayList<>(books.values());
     }
 
+    public Book getBook(String book_id){
+        return books.get(book_id);
+    }
+
     public Book removeBook(String bookName){
         Book removedBook = books.get(bookName);
         if(removedBook == null){
