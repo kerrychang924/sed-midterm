@@ -7,7 +7,7 @@ class LibrarySystem {
     private static final CmdHandler handler = new CmdHandler();
 
     public static void main(String[] args) {
-        String filePath = "sample.in";
+        String filePath = args[0];
         String staffId;
         String[] tokens;
         List<Book> books;
@@ -52,6 +52,9 @@ class LibrarySystem {
                                 }
                             }else{ // borrower
                                 handler.addUser(tokens[0], tokens[1], tokens[2]);
+                                if(inputUserCount == 0){
+                                    break;
+                                }
                             }
                         }
                     }
