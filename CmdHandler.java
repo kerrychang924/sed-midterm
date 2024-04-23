@@ -11,7 +11,7 @@ public class CmdHandler {
 
     public void addUser(String type, String name, String booksLimit) {
         User user;
-        if (!(type == "Staff" || type == "Borrower")) {
+        if (!(Objects.equals(type, "Staff") || Objects.equals(type, "Borrower"))) {
             System.err.println("Invalid user.");
             System.out.println("Error");
             return;
