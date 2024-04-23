@@ -52,6 +52,7 @@ public class Staff implements User {
 
         // checkout logic
         book.setStatus(false);
+        book.setBorrower(user);
     }
 
     @Override
