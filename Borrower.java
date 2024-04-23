@@ -39,22 +39,22 @@ public class Borrower implements User {
     
     @Override
     public void checkout(Library library, Book book, User user) {
-      System.out("Borrower can not check out the books");
+      System.out.println("Borrower can not check out the books");
     }
 
     @Override
     public void returnBook(Library library, Book book) {
-      System.out("Borrower can not return book");
+      System.out.println("Borrower can not return book");
     }
 
     @Override
     public void addBook(Library library, Author author, Subject subject) {
-      System.out("Borrower can not add book");
+      System.out.println("Borrower can not add book");
     }
 
     @Override
     public void removeBook(Library library, Book book) {
-      System.out("Borrower can not remove book");
+      System.out.println("Borrower can not remove book");
     }
 
     @Override
@@ -71,13 +71,14 @@ public class Borrower implements User {
     public List<Book> getBooksByBorrower(Library library, User user) {
       if(user == this) return user.getBorrowedBooks();
       else{
-        System.out("Borrower can not find books checked out by other users");
+        System.out.println("Borrower can not find books checked out by other users");
         return null;
       } 
     }
 
     @Override
     public User findLastBorrower(Library library, Book book) {
-        System.out("Borrower can not find borrower");
+        System.out.println("Borrower can not find borrower");
+        return null;
     }
 }
