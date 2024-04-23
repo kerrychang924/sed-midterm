@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 public class Author {
     private final String name;
-    SortedSet<Book> books;
+    private final SortedSet<Book> books;
 
     public Author(String name){
         this.name = name;
@@ -17,6 +17,10 @@ public class Author {
 
     public List<Book> getBooks(){
         return new ArrayList<>(books);
+    }
+
+    public void addBook(Book book){
+        books.add(book);
     }
 
 }

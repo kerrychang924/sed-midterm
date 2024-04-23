@@ -18,4 +18,8 @@ public class Subject {
     public List<Book> getBooks(){
         return new ArrayList<>(books);
     }
+
+    public void addBook(Book book){
+        books.add(book);
+    }
 }
