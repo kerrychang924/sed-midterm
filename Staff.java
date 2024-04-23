@@ -62,6 +62,7 @@ public class Staff implements User {
       if(book.getStatus() == true){
         System.out.println("Can not return since the book isn't checked out");
       }
+      User user = book.getBorrower();
       user.removeBorrowedBook(book);
       book.setStatus(true);
     }
